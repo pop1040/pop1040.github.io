@@ -1,0 +1,380 @@
+.mainSec{
+	
+}
+body{
+	padding: none;
+	margin: none;
+	display: flex;
+	padding: 16px;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+	height: 100vh;
+}
+.flex-center{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+article#tictactoe{
+	display: flex;
+	padding: 16px;
+	justify-content: center;
+	align-items: center;
+	position: relative; /* For position absolute in boardContainer */
+}
+article#tictactoe > form{
+	position: relative;
+}
+article#tictactoe input[type="radio"]{
+	display: none;
+}
+article#tictactoe .boardContainer{
+	position: relative;
+	display: flex;
+	/* top: 0px;
+	left: 0px; */
+}
+
+article#tictactoe .boardContainer .currentPlayer{
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	font-size: 32pt;
+	width: 300px;
+}
+article#tictactoe .boardContainer .winningOverlay{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	margin: 2px;
+	width:308px;
+	height:308px;
+	background-color: rgba(128, 128, 128, 0.8);
+	display: flex;
+	flex-direction: column;
+	visibility: hidden;
+}
+article#tictactoe .boardContainer .winningOverlay > div:first-child{
+	flex-grow: 1;
+}
+article#tictactoe .boardContainer .winningOverlayText{
+	position: relative;
+}
+article#tictactoe .boardContainer .winningOverlayText > *{
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+article#tictactoe .boardContainer .winningOverlay .winningText{
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	font-size: 32pt;
+	transform: rotate(-45deg);
+	visibility: hidden;
+}
+article#tictactoe .boardContainer .winningOverlay .tiedText{
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	font-size: 32pt;
+	visibility: hidden;
+}
+article#tictactoe .boardContainer .winningOverlay .winningText.onRedWon{
+	color: red;
+}
+article#tictactoe .boardContainer .winningOverlay .winningText.onBlueWon{
+	color: blue;
+}
+article#tictactoe .board{
+	display: grid;
+	grid-template-areas: 
+	". . ."
+	". . ."
+	". . .";
+}
+article#tictactoe .board > label, article#tictactoe .board > div{
+	width: 100px;
+	height: 100px;
+	margin: 2px;
+	display: block;
+	background-color: grey;
+}
+
+article#tictactoe .board > div{display: none;}
+article#tictactoe .board > div.labelPR{background-color: red;}
+article#tictactoe .board > div.labelPB{background-color: blue;}
+
+/* Remove the label for an untaken square once it is taken and enable the div for it's color */
+article#tictactoe input[type="radio"].piece1.red:checked  ~ .mainSec     .labelP1.labelPR{display: block;}
+article#tictactoe input[type="radio"].piece1.blue:checked ~ .mainSec     .labelP1.labelPB{display: block;}
+article#tictactoe input[type="radio"].piece1:checked ~ .mainSec label.labelPiece1        {display: none ;}
+article#tictactoe input[type="radio"].piece2.red:checked  ~ .mainSec     .labelP2.labelPR{display: block;}
+article#tictactoe input[type="radio"].piece2.blue:checked ~ .mainSec     .labelP2.labelPB{display: block;}
+article#tictactoe input[type="radio"].piece2:checked ~ .mainSec label.labelPiece2        {display: none ;}
+article#tictactoe input[type="radio"].piece3.red:checked  ~ .mainSec     .labelP3.labelPR{display: block;}
+article#tictactoe input[type="radio"].piece3.blue:checked ~ .mainSec     .labelP3.labelPB{display: block;}
+article#tictactoe input[type="radio"].piece3:checked ~ .mainSec label.labelPiece3        {display: none ;}
+article#tictactoe input[type="radio"].piece4.red:checked  ~ .mainSec     .labelP4.labelPR{display: block;}
+article#tictactoe input[type="radio"].piece4.blue:checked ~ .mainSec     .labelP4.labelPB{display: block;}
+article#tictactoe input[type="radio"].piece4:checked ~ .mainSec label.labelPiece4        {display: none ;}
+article#tictactoe input[type="radio"].piece5.red:checked  ~ .mainSec     .labelP5.labelPR{display: block;}
+article#tictactoe input[type="radio"].piece5.blue:checked ~ .mainSec     .labelP5.labelPB{display: block;}
+article#tictactoe input[type="radio"].piece5:checked ~ .mainSec label.labelPiece5        {display: none ;}
+article#tictactoe input[type="radio"].piece6.red:checked  ~ .mainSec     .labelP6.labelPR{display: block;}
+article#tictactoe input[type="radio"].piece6.blue:checked ~ .mainSec     .labelP6.labelPB{display: block;}
+article#tictactoe input[type="radio"].piece6:checked ~ .mainSec label.labelPiece6        {display: none ;}
+article#tictactoe input[type="radio"].piece7.red:checked  ~ .mainSec     .labelP7.labelPR{display: block;}
+article#tictactoe input[type="radio"].piece7.blue:checked ~ .mainSec     .labelP7.labelPB{display: block;}
+article#tictactoe input[type="radio"].piece7:checked ~ .mainSec label.labelPiece7        {display: none ;}
+article#tictactoe input[type="radio"].piece8.red:checked  ~ .mainSec     .labelP8.labelPR{display: block;}
+article#tictactoe input[type="radio"].piece8.blue:checked ~ .mainSec     .labelP8.labelPB{display: block;}
+article#tictactoe input[type="radio"].piece8:checked ~ .mainSec label.labelPiece8        {display: none ;}
+article#tictactoe input[type="radio"].piece9.red:checked  ~ .mainSec     .labelP9.labelPR{display: block;}
+article#tictactoe input[type="radio"].piece9.blue:checked ~ .mainSec     .labelP9.labelPB{display: block;}
+article#tictactoe input[type="radio"].piece9:checked ~ .mainSec label.labelPiece9        {display: none ;}
+
+/* default to red's turn by hiding red */
+article#tictactoe .blueB{
+	display: none;
+}
+/* Enable red's input board on odd turns and blue's input board on even turns by counting the number of checked radio buttons*/
+article#tictactoe input[type="radio"]:checked ~ .mainSec .blueB{display: flex;}
+article#tictactoe input[type="radio"]:checked ~ .mainSec .redB {display: none;}
+article#tictactoe input[type="radio"]:checked ~ input[type="radio"]:checked ~ .mainSec .blueB{display: none;}
+article#tictactoe input[type="radio"]:checked ~ input[type="radio"]:checked ~ .mainSec .redB {display: flex;}
+article#tictactoe input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ .mainSec .blueB{display: flex;}
+article#tictactoe input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ .mainSec .redB {display: none;}
+article#tictactoe input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ .mainSec .blueB{display: none;}
+article#tictactoe input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ .mainSec .redB {display: flex;}
+article#tictactoe input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ .mainSec .blueB{display: flex;}
+article#tictactoe input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ .mainSec .redB {display: none;}
+article#tictactoe input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ .mainSec .blueB{display: none;}
+article#tictactoe input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ .mainSec .redB {display: flex;}
+article#tictactoe input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ .mainSec .blueB{display: flex;}
+article#tictactoe input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ .mainSec .redB {display: none;}
+article#tictactoe input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ .mainSec .blueB{display: none;}
+article#tictactoe input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ .mainSec .redB {display: flex;}
+article#tictactoe input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ .mainSec .blueB{display: flex;}
+article#tictactoe input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ .mainSec .redB {display: none;}
+
+
+/* Detect tie event */
+article#tictactoe
+input[type="radio"].piece1:checked ~
+input[type="radio"].piece2:checked ~
+input[type="radio"].piece3:checked ~
+input[type="radio"].piece4:checked ~
+input[type="radio"].piece5:checked ~
+input[type="radio"].piece6:checked ~
+input[type="radio"].piece7:checked ~
+input[type="radio"].piece8:checked ~
+input[type="radio"].piece9:checked ~ .mainSec .onTie{
+	visibility: visible;
+}
+
+
+/* Disable tie display if a winning condition was met as well */
+article#tictactoe
+input[type="radio"].piece1.red:checked ~
+input[type="radio"].piece4.red:checked ~
+input[type="radio"].piece7.red:checked ~ .mainSec .onTie{
+	visibility: hidden !important;
+}
+article#tictactoe
+input[type="radio"].piece2.red:checked ~
+input[type="radio"].piece5.red:checked ~
+input[type="radio"].piece8.red:checked ~ .mainSec .onTie{
+	visibility: hidden !important;
+}
+article#tictactoe
+input[type="radio"].piece3.red:checked ~
+input[type="radio"].piece6.red:checked ~
+input[type="radio"].piece9.red:checked ~ .mainSec .onTie{
+	visibility: hidden !important;
+}
+article#tictactoe
+input[type="radio"].piece1.blue:checked ~
+input[type="radio"].piece4.blue:checked ~
+input[type="radio"].piece7.blue:checked ~ .mainSec .onTie{
+	visibility: hidden !important;
+}
+article#tictactoe
+input[type="radio"].piece2.blue:checked ~
+input[type="radio"].piece5.blue:checked ~
+input[type="radio"].piece8.blue:checked ~ .mainSec .onTie{
+	visibility: hidden !important;
+}
+article#tictactoe
+input[type="radio"].piece3.blue:checked ~
+input[type="radio"].piece6.blue:checked ~
+input[type="radio"].piece9.blue:checked ~ .mainSec .onTie{
+	visibility: hidden !important;
+}
+
+
+article#tictactoe
+input[type="radio"].piece1.red:checked ~
+input[type="radio"].piece2.red:checked ~
+input[type="radio"].piece3.red:checked ~ .mainSec .onTie{
+	visibility: hidden !important;
+}
+article#tictactoe
+input[type="radio"].piece4.red:checked ~
+input[type="radio"].piece5.red:checked ~
+input[type="radio"].piece6.red:checked ~ .mainSec .onTie{
+	visibility: hidden !important;
+}
+article#tictactoe
+input[type="radio"].piece7.red:checked ~
+input[type="radio"].piece8.red:checked ~
+input[type="radio"].piece9.red:checked ~ .mainSec .onTie{
+	visibility: hidden !important;
+}
+article#tictactoe
+input[type="radio"].piece1.blue:checked ~
+input[type="radio"].piece2.blue:checked ~
+input[type="radio"].piece3.blue:checked ~ .mainSec .onTie{
+	visibility: hidden !important;
+}
+article#tictactoe
+input[type="radio"].piece4.blue:checked ~
+input[type="radio"].piece5.blue:checked ~
+input[type="radio"].piece6.blue:checked ~ .mainSec .onTie{
+	visibility: hidden !important;
+}
+article#tictactoe
+input[type="radio"].piece7.blue:checked ~
+input[type="radio"].piece8.blue:checked ~
+input[type="radio"].piece9.blue:checked ~ .mainSec .onTie{
+	visibility: hidden !important;
+}
+
+
+article#tictactoe
+input[type="radio"].piece1.red:checked ~
+input[type="radio"].piece5.red:checked ~
+input[type="radio"].piece9.red:checked ~ .mainSec .onTie{
+	visibility: hidden !important;
+}
+article#tictactoe
+input[type="radio"].piece3.red:checked ~
+input[type="radio"].piece5.red:checked ~
+input[type="radio"].piece7.red:checked ~ .mainSec .onTie{
+	visibility: hidden !important;
+}
+article#tictactoe
+input[type="radio"].piece1.blue:checked ~
+input[type="radio"].piece5.blue:checked ~
+input[type="radio"].piece9.blue:checked ~ .mainSec .onTie{
+	visibility: hidden !important;
+}
+article#tictactoe
+input[type="radio"].piece3.blue:checked ~
+input[type="radio"].piece5.blue:checked ~
+input[type="radio"].piece7.blue:checked ~ .mainSec .onTie{
+	visibility: hidden !important;
+}
+
+
+/* Detect if red or blue won in a vertical row */
+article#tictactoe
+input[type="radio"].piece1.red:checked ~
+input[type="radio"].piece4.red:checked ~
+input[type="radio"].piece7.red:checked ~ .mainSec .onRedWon{
+	visibility: visible !important;
+}
+article#tictactoe
+input[type="radio"].piece2.red:checked ~
+input[type="radio"].piece5.red:checked ~
+input[type="radio"].piece8.red:checked ~ .mainSec .onRedWon{
+	visibility: visible !important;
+}
+article#tictactoe
+input[type="radio"].piece3.red:checked ~
+input[type="radio"].piece6.red:checked ~
+input[type="radio"].piece9.red:checked ~ .mainSec .onRedWon{
+	visibility: visible !important;
+}
+article#tictactoe
+input[type="radio"].piece1.blue:checked ~
+input[type="radio"].piece4.blue:checked ~
+input[type="radio"].piece7.blue:checked ~ .mainSec .onBlueWon{
+	visibility: visible !important;
+}
+article#tictactoe
+input[type="radio"].piece2.blue:checked ~
+input[type="radio"].piece5.blue:checked ~
+input[type="radio"].piece8.blue:checked ~ .mainSec .onBlueWon{
+	visibility: visible !important;
+}
+article#tictactoe
+input[type="radio"].piece3.blue:checked ~
+input[type="radio"].piece6.blue:checked ~
+input[type="radio"].piece9.blue:checked ~ .mainSec .onBlueWon{
+	visibility: visible !important;
+}
+
+/* Detect if red or blue won in a horizontal row */
+article#tictactoe
+input[type="radio"].piece1.red:checked ~
+input[type="radio"].piece2.red:checked ~
+input[type="radio"].piece3.red:checked ~ .mainSec .onRedWon{
+	visibility: visible !important;
+}
+article#tictactoe
+input[type="radio"].piece4.red:checked ~
+input[type="radio"].piece5.red:checked ~
+input[type="radio"].piece6.red:checked ~ .mainSec .onRedWon{
+	visibility: visible !important;
+}
+article#tictactoe
+input[type="radio"].piece7.red:checked ~
+input[type="radio"].piece8.red:checked ~
+input[type="radio"].piece9.red:checked ~ .mainSec .onRedWon{
+	visibility: visible !important;
+}
+article#tictactoe
+input[type="radio"].piece1.blue:checked ~
+input[type="radio"].piece2.blue:checked ~
+input[type="radio"].piece3.blue:checked ~ .mainSec .onBlueWon{
+	visibility: visible !important;
+}
+article#tictactoe
+input[type="radio"].piece4.blue:checked ~
+input[type="radio"].piece5.blue:checked ~
+input[type="radio"].piece6.blue:checked ~ .mainSec .onBlueWon{
+	visibility: visible !important;
+}
+article#tictactoe
+input[type="radio"].piece7.blue:checked ~
+input[type="radio"].piece8.blue:checked ~
+input[type="radio"].piece9.blue:checked ~ .mainSec .onBlueWon{
+	visibility: visible !important;
+}
+
+/* Detect if red or blue won in a diagonal row */
+article#tictactoe
+input[type="radio"].piece1.red:checked ~
+input[type="radio"].piece5.red:checked ~
+input[type="radio"].piece9.red:checked ~ .mainSec .onRedWon{
+	visibility: visible !important;
+}
+article#tictactoe
+input[type="radio"].piece3.red:checked ~
+input[type="radio"].piece5.red:checked ~
+input[type="radio"].piece7.red:checked ~ .mainSec .onRedWon{
+	visibility: visible !important;
+}
+article#tictactoe
+input[type="radio"].piece1.blue:checked ~
+input[type="radio"].piece5.blue:checked ~
+input[type="radio"].piece9.blue:checked ~ .mainSec .onBlueWon{
+	visibility: visible !important;
+}
+article#tictactoe
+input[type="radio"].piece3.blue:checked ~
+input[type="radio"].piece5.blue:checked ~
+input[type="radio"].piece7.blue:checked ~ .mainSec .onBlueWon{
+	visibility: visible !important;
+}

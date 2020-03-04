@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<title>CSS Tick Tac Toe</title>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<link rel='stylesheet' type='text/css' media='screen' href='normalize.css'>
+	<link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+	<!-- <script src='main.js'></script> -->
+</head>
+<body>
+	<article id="tictactoe">
+		<form>
+			<input class="piece piece1 red"  type="radio" id="piece1r" name="piece1" value="piece1r">
+			<input class="piece piece1 blue" type="radio" id="piece1b" name="piece1" value="piece1b">
+			<input class="piece piece2 red"  type="radio" id="piece2r" name="piece2" value="piece2r">
+			<input class="piece piece2 blue" type="radio" id="piece2b" name="piece2" value="piece2b">
+			<input class="piece piece3 red"  type="radio" id="piece3r" name="piece3" value="piece3r">
+			<input class="piece piece3 blue" type="radio" id="piece3b" name="piece3" value="piece3b">
+			<input class="piece piece4 red"  type="radio" id="piece4r" name="piece4" value="piece4r">
+			<input class="piece piece4 blue" type="radio" id="piece4b" name="piece4" value="piece4b">
+			<input class="piece piece5 red"  type="radio" id="piece5r" name="piece5" value="piece5r">
+			<input class="piece piece5 blue" type="radio" id="piece5b" name="piece5" value="piece5b">
+			<input class="piece piece6 red"  type="radio" id="piece6r" name="piece6" value="piece6r">
+			<input class="piece piece6 blue" type="radio" id="piece6b" name="piece6" value="piece6b">
+			<input class="piece piece7 red"  type="radio" id="piece7r" name="piece7" value="piece7r">
+			<input class="piece piece7 blue" type="radio" id="piece7b" name="piece7" value="piece7b">
+			<input class="piece piece8 red"  type="radio" id="piece8r" name="piece8" value="piece8r">
+			<input class="piece piece8 blue" type="radio" id="piece8b" name="piece8" value="piece8b">
+			<input class="piece piece9 red"  type="radio" id="piece9r" name="piece9" value="piece9r">
+			<input class="piece piece9 blue" type="radio" id="piece9b" name="piece9" value="piece9b">
+			<div class="mainSec">
+				<div class="redB boardContainer">
+					<div class="board">
+						<label class="labelPiece1" for="piece1r"></label>
+						<div class="labelP1 labelPR"></div>
+						<div class="labelP1 labelPB"></div>
+						<label class="labelPiece2" for="piece2r"></label>
+						<div class="labelP2 labelPR"></div>
+						<div class="labelP2 labelPB"></div>
+						<label class="labelPiece3" for="piece3r"></label>
+						<div class="labelP3 labelPR"></div>
+						<div class="labelP3 labelPB"></div>
+						<label class="labelPiece4" for="piece4r"></label>
+						<div class="labelP4 labelPR"></div>
+						<div class="labelP4 labelPB"></div>
+						<label class="labelPiece5" for="piece5r"></label>
+						<div class="labelP5 labelPR"></div>
+						<div class="labelP5 labelPB"></div>
+						<label class="labelPiece6" for="piece6r"></label>
+						<div class="labelP6 labelPR"></div>
+						<div class="labelP6 labelPB"></div>
+						<label class="labelPiece7" for="piece7r"></label>
+						<div class="labelP7 labelPR"></div>
+						<div class="labelP7 labelPB"></div>
+						<label class="labelPiece8" for="piece8r"></label>
+						<div class="labelP8 labelPR"></div>
+						<div class="labelP8 labelPB"></div>
+						<label class="labelPiece9" for="piece9r"></label>
+						<div class="labelP9 labelPR"></div>
+						<div class="labelP9 labelPB"></div>
+					</div>
+					<div class="winningOverlay onBlueWon onRedWon">
+						<div class="flex-center">
+							<div class="flex-center"><div class="winningText onRedWon">Red Won!</div></div>
+							<div class="flex-center"><div class="winningText onBlueWon">Blue Won!</div></div>
+							<div class="onTie tiedText">Tie</div>
+						</div>
+						<div class="flex-center">
+							<input type="reset">
+						</div>
+					</div>
+					<div class="currentPlayer">
+						Red's turn
+					</div>
+				</div>
+				<div class="blueB boardContainer">
+					<div class="board">
+						<label class="labelPiece1" for="piece1b"></label>
+						<div class="labelP1 labelPR"></div>
+						<div class="labelP1 labelPB"></div>
+						<label class="labelPiece2" for="piece2b"></label>
+						<div class="labelP2 labelPR"></div>
+						<div class="labelP2 labelPB"></div>
+						<label class="labelPiece3" for="piece3b"></label>
+						<div class="labelP3 labelPR"></div>
+						<div class="labelP3 labelPB"></div>
+						<label class="labelPiece4" for="piece4b"></label>
+						<div class="labelP4 labelPR"></div>
+						<div class="labelP4 labelPB"></div>
+						<label class="labelPiece5" for="piece5b"></label>
+						<div class="labelP5 labelPR"></div>
+						<div class="labelP5 labelPB"></div>
+						<label class="labelPiece6" for="piece6b"></label>
+						<div class="labelP6 labelPR"></div>
+						<div class="labelP6 labelPB"></div>
+						<label class="labelPiece7" for="piece7b"></label>
+						<div class="labelP7 labelPR"></div>
+						<div class="labelP7 labelPB"></div>
+						<label class="labelPiece8" for="piece8b"></label>
+						<div class="labelP8 labelPR"></div>
+						<div class="labelP8 labelPB"></div>
+						<label class="labelPiece9" for="piece9b"></label>
+						<div class="labelP9 labelPR"></div>
+						<div class="labelP9 labelPB"></div>
+					</div>
+					<div class="winningOverlay onBlueWon onRedWon onTie">
+						<div class="winningOverlayText">
+							<div class="flex-center"><div class="winningText onRedWon">Red Won!</div></div>
+							<div class="flex-center"><div class="winningText onBlueWon">Blue Won!</div></div>
+							<div class="onTie tiedText">Tie</div>
+						</div>
+						<div class="flex-center">
+							<input type="reset">
+						</div>
+					</div>
+					<div class="currentPlayer">
+						Blue's turn
+					</div>
+				</div>
+			</div>
+		</form>
+	</article>
+</body>
+</html>
